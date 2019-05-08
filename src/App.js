@@ -1,66 +1,66 @@
 import React from 'react';
 import './App.css';
-import img from './images/cancel.svg';
+import cancelImg from './images/cancel.svg';
 
-let todos = [
-  {
-    id: 1,
-    description: "a thing",
-    completed: false,
-  },
-  {
-    id: 2,
-    description: "a thing",
-    completed: true,
-  },
-  {
-    id: 3,
-    description: "a thing",
-    completed: false,
+export default class App extends React.Component {
+  state = {
+    todos: [
+      {
+        // id: 1,
+        description: "a thing",
+        completed: false,
+      },
+      {
+        // id: 2,
+        description: "a thing",
+        completed: true,
+      },
+      {
+        // id: 3,
+        description: "a thing",
+        completed: false,
+      },
+    ],
+    newTodoDesc: ''
   }
 
-]
+  newTodo = e => {
+    this.setState({ newTodoDesc: e.target.value })
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <h1> TaDa!List </h1>
-      {/* <ul className="listItems">
-        <li><img src={img} alt="delete" id="deleteBtn" />a thing<input type="checkbox"></input></li>
-      </ul>
-      <ul className="listItems">
-        <li><img src={img} alt="delete" id="deleteBtn" />a thing<input type="checkbox"></input></li>
-      </ul>
-      <ul className="listItems">
-        <li><img src={img} alt="delete" id="deleteBtn" />a thing<input type="checkbox"></input></li>
-      </ul> */}
-      <ul className="listItems">
-        {todos.map(todo => (
-          <li key={todo.id}>
-            <img src={img} alt="delete" id="deleteBtn" />
-            {todo.description}
-            <input type="checkbox" defaultChecked={todo.completed} />
-          </li>
-          // <li key={todo.id}>
-          //   {todo.description}
-          //   <input type="checkbox" defaultChecked={todo.completed} />
-          // </li>
-          // <li>
-          //   <div key={todo.id}>
-          //     {todo.description}
-          //     <input type="checkbox" defaultChecked={todo.completed} />
-          //   </div>
-          // </li>
-        ))
+  addTodo = () => {
+    let todos = this.state.todos
+    todos.push({
+      description: this.state.newTodoDesc,
+      completed: false
+    })
+    this.setState({ todos: todos, newTodoDesc: '' })
+  }
 
-        }
-      </ul>
-      <div className="new">
-        <input type="text" className="input" />
-        <button className="btn">add new</button>
+  render() {
+    return (
+      <div className="App" >
+        <h1> TaDa!List </h1>
+        <ul className="listItems" >
+          {this.state.todos.map((todo, index) => (
+            <li key={index} id="item">
+              <input type="checkbox" id="check" defaultChecked={todo.completed} />
+              {todo.description}
+              <img src={cancelImg} alt="cancel-icon" />
+            </li>
+          ))}
+        </ul>
+        <div className="addItem">
+          <input
+            type="text"
+            value={this.state.newTodoDesc}
+            onChange={this.newTodo}
+            onKeyDown={(e) => e.key === 'Enter' ? this.addTodo() : ''}
+          />
+
+          <button id="btn" onClick={this.addTodo}>Add item</button>
+        </div>
       </div>
-    </div >
-  );
+    )
+  }
 }
-
-export default App;
