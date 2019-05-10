@@ -6,10 +6,10 @@ body {
   max-width: 900px;
 }
 
-h1 {
+/* h1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-}
+} */
 
 ul {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,12 +17,12 @@ ul {
   list-style: none;
 }
 
-li {
+/* li {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 33px 0;
-}
+} */
 
 .listItems img {
   height: 15px;
