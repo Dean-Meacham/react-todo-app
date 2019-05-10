@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Todo from './Todo';
 import Header from './Header';
+// import styled from 'styled-components';
 
 export default class App extends React.Component {
   state = {
