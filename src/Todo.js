@@ -8,6 +8,10 @@ const List = styled.li`
     align-items: center;
     margin: 33px 0;
 `
+// const Cancel = styled.img`
+//     height: 15px;
+//     width: auto;
+//     `
 
 export default class Todo extends React.Component {
     render() {
