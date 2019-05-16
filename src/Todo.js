@@ -7,6 +7,7 @@ const List = styled.li`
     justify-content: center;
     align-items: center;
     margin: 33px 0;
+    text-decoration: ${props => props.completed ? 'line-through':'none'};
 `
 // const Cancel = styled.img`
 //     height: 15px;

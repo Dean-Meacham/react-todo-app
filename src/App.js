@@ -40,12 +40,12 @@ export default class App extends React.Component {
       {
         // id: 1,
         description: "a thing",
-        completed: false,
+        completed: true,
       },
       {
         // id: 2,
         description: "a thing",
-        completed: true,
+        completed: false,
       },
       {
         // id: 3,
